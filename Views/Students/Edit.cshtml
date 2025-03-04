@@ -1,0 +1,43 @@
+﻿@model MyApp.Models.Student
+
+@if (Model is null)
+{
+    <p class="alert alert-warning text-center">No student found.</p>
+}
+else
+{
+    <div class="container mt-4">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Edit Student</h2>
+
+                <form method="post" class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Id" class="form-label fw-bold">Student ID</label>
+                        <input asp-for="Id" class="form-control" readonly />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Name" class="form-label fw-bold">Full Name</label>
+                        <input asp-for="Name" class="form-control" type="text" required />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Email" class="form-label fw-bold">Email Address</label>
+                        <input asp-for="Email" class="form-control" type="email" required />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Phone" class="form-label fw-bold">Phone Number</label>
+                        <input asp-for="Phone" class="form-control" type="text" />
+                    </div>
+
+                    <div class="col-12 text-center mt-3">
+                        <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+                        <button type="submit" class="btn btn-danger px-4 ms-3" asp-action="Delete" asp-controller="Students">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}

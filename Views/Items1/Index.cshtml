@@ -1,0 +1,30 @@
+﻿@model List<MyApp.Models.Item1>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Index</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.price.ToString("N2")</td>  <!-- Fixed: "price" to "Price" -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
